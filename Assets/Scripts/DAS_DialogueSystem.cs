@@ -30,6 +30,7 @@ public class DAS_DialogueSystem : MonoBehaviour
             currentDialogueIndex = diagIndex;
             currentPhraseIndex = 0;
             buildDialogueBox(dialogueBox, dialogues[diagIndex], 0);
+            dialogueBox.showUpAnimation();
         }
     }
 
@@ -78,6 +79,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         if (dialogues[currentDialogueIndex].jumpToDialogue)
         {
             callSpecificDialogue(dialogues[currentDialogueIndex].targetDialogue);
+            dialogueBox.showUpAnimation();
         }
         // Else check if there is another dialogue in the queue
         else
@@ -87,6 +89,7 @@ public class DAS_DialogueSystem : MonoBehaviour
                 currentDialogueIndex++;
                 currentPhraseIndex = 0;
                 buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
+                dialogueBox.showUpAnimation();
             }
         }
     }
@@ -106,6 +109,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         currentPhraseIndex = 0;
         currentDialogueIndex = diagIndex;
         buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
+        dialogueBox.showUpAnimation();
     }
 
     public void buildDialogueBox(DAS_DialogueBox dialogueBox, DAS_Dialogue dialogue, int phraseIndex = 0)

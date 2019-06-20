@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DAS_DialogueBox : MonoBehaviour
 {
     public DAS_DialogueSystem currentDialogueSystem;
+    public string showUpAnimTrigger = "riseup";
 
     // DialoguePanel
     public GameObject dialogueNoOptions;
@@ -34,6 +35,13 @@ public class DAS_DialogueBox : MonoBehaviour
     public GameObject singleOptionBox;
     public Text singleOptionText;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void nextPhrase()
     {
         currentDialogueSystem.nextPhrase();
@@ -42,6 +50,11 @@ public class DAS_DialogueBox : MonoBehaviour
     public void optionClick(int optionIndex)
     {
         currentDialogueSystem.executeOption(optionIndex);
+    }
+
+    public void showUpAnimation()
+    {
+        animator.SetTrigger(showUpAnimTrigger);
     }
 
 
