@@ -15,9 +15,10 @@ public class PlayAnimation : DAS_Action
         // dialoguesystem.active = true will keep the dialogue active,
         // so the user dont open the dialogue again while animation is playing
         dialogueSystem.active = true;
+        dialogueSystem.dialogueController.dialogueInCourse = true;
         effect.SetActive(true);
         animator.SetTrigger("jump");
-        Invoke("callNextDialogue", 1.5f);
+        Invoke("callNextDialogue", 1f);
     }
 
     private void callNextDialogue()

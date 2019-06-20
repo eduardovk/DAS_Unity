@@ -62,13 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DAS_DialogueController.cs" />
     <Compile Include="Assets\Scripts\DAS_Action.cs" />
     <Compile Include="Assets\Scripts\DAS_Dialogue.cs" />
     <Compile Include="Assets\Scripts\DAS_DialogueBox.cs" />
     <Compile Include="Assets\Scripts\DAS_DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\DAS_Option.cs" />
     <Compile Include="Assets\Scripts\PlayAnimation.cs" />
-    <Compile Include="Assets\TestScript.cs" />
+    <Compile Include="Assets\Scripts\TestScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/ProjetosUnity/DAS_Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

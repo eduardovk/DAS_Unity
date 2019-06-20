@@ -21,16 +21,3 @@ public class DAS_Dialogue : MonoBehaviour
 
 }
 
-//[CustomEditor(typeof(DAS_Dialogue))]
-//public class DAS_DialogueEditor : Editor
-//{
-//    override public void OnInspectorGUI()
-//    {
-//        var dialogueScript = target as DAS_Dialogue;
-//        dialogueScript.inheritStyle = GUILayout.Toggle(dialogueScript.inheritStyle, "Inherit Sytle");
-//        if (!dialogueScript.inheritStyle)
-//        {
-//            dialogueScript.title = EditorGUILayout.TextField("Title");
-//        }
-//    }
-//}

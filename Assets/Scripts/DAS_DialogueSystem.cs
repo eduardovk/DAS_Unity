@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DAS_DialogueSystem : MonoBehaviour
 {
+    public DAS_DialogueController dialogueController;
     public DAS_DialogueBox dialogueBox;
     public DAS_Dialogue[] dialogues;
     public Sprite photo;
@@ -20,9 +21,10 @@ public class DAS_DialogueSystem : MonoBehaviour
 
     public void startDialogue()
     {
-        if (!active)
+        if (!active && !dialogueController.dialogueInCourse)
         {
             active = true;
+            dialogueController.dialogueInCourse = true;
             dialogueBox.currentDialogueSystem = this;
             int diagIndex = random ? Random.Range(0, dialogues.Length) : 0;
             currentDialogueIndex = diagIndex;
@@ -34,6 +36,7 @@ public class DAS_DialogueSystem : MonoBehaviour
     public void endDialogue()
     {
         active = false;
+        dialogueController.dialogueInCourse = false;
         dialogueBox.dialogueWithOptions.SetActive(false);
         dialogueBox.dialogueNoOptions.SetActive(false);
         disableOptions(dialogueBox);
@@ -91,6 +94,7 @@ public class DAS_DialogueSystem : MonoBehaviour
     public void callSpecificDialogue(DAS_Dialogue dialogue)
     {
         active = true;
+        dialogueController.dialogueInCourse = true;
         int diagIndex = 0;
         for (int i = 0; i < dialogues.Length; i++)
         {
@@ -107,6 +111,7 @@ public class DAS_DialogueSystem : MonoBehaviour
     public void buildDialogueBox(DAS_DialogueBox dialogueBox, DAS_Dialogue dialogue, int phraseIndex = 0)
     {
         active = true;
+        dialogueController.dialogueInCourse = true;
         disableOptions(dialogueBox);
         // If current dialogue has options, activate the bigger box
         if (dialogue.options.Length > 0)
@@ -164,7 +169,7 @@ public class DAS_DialogueSystem : MonoBehaviour
     {
         if (photo)
         {
-            diagBox.photo.sprite = this.photo;
+            diagBox.photo.sprite = photo;
             diagBox.photo.enabled = true;
             diagBox.titlePhoto.enabled = true;
             diagBox.titleNoPhoto.enabled = false;
@@ -200,6 +205,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         {
             endDialogue();
             active = true;
+            dialogueController.dialogueInCourse = true;
             dialogues[currentDialogueIndex].options[optionIndex].action.execute();
         }
 
