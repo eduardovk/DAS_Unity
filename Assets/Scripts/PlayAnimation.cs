@@ -5,9 +5,25 @@ using UnityEngine;
 public class PlayAnimation : DAS_Action
 {
     public DAS_Dialogue dialogue;
+    public DAS_DialogueSystem dialogueSystem;
+    public GameObject effect;
+    public Animator animator;
 
     public override void execute()
     {
-        //
+        // in this example, there is still dialogues after the animation
+        // dialoguesystem.active = true will keep the dialogue active,
+        // so the user dont open the dialogue again while animation is playing
+        dialogueSystem.active = true;
+        effect.SetActive(true);
+        animator.SetTrigger("jump");
+        Invoke("callNextDialogue", 1.5f);
     }
+
+    private void callNextDialogue()
+    {
+        effect.SetActive(false);
+        dialogueSystem.callSpecificDialogue(dialogue);
+    }
+
 }

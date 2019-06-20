@@ -39,6 +39,11 @@ public class DAS_DialogueBox : MonoBehaviour
         currentDialogueSystem.nextPhrase();
     }
 
+    public void optionClick(int optionIndex)
+    {
+        currentDialogueSystem.executeOption(optionIndex);
+    }
+
 
 
 }

@@ -14,6 +14,9 @@ public class DAS_Dialogue : MonoBehaviour
     public string title;
     public Sprite photo;
 
+    public bool jumpToDialogue;
+    public DAS_Dialogue targetDialogue;
+
    
 
 }

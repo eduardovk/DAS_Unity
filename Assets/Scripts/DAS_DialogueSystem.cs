@@ -15,13 +15,33 @@ public class DAS_DialogueSystem : MonoBehaviour
     public int currentDialogueIndex = 0;
     [HideInInspector]
     public int currentPhraseIndex = 0;
-    
+    [HideInInspector]
+    public bool active = false;
 
     public void startDialogue()
     {
-        dialogueBox.currentDialogueSystem = this;
-        int diagIndex = random ? Random.Range(0, dialogues.Length) : 0;
-        buildDialogueBox(dialogueBox, dialogues[diagIndex], 0);
+        if (!active)
+        {
+            active = true;
+            dialogueBox.currentDialogueSystem = this;
+            int diagIndex = random ? Random.Range(0, dialogues.Length) : 0;
+            currentDialogueIndex = diagIndex;
+            currentPhraseIndex = 0;
+            buildDialogueBox(dialogueBox, dialogues[diagIndex], 0);
+        }
+    }
+
+    public void endDialogue()
+    {
+        active = false;
+        dialogueBox.dialogueWithOptions.SetActive(false);
+        dialogueBox.dialogueNoOptions.SetActive(false);
+        disableOptions(dialogueBox);
+        dialogueBox.photo.enabled = false;
+        dialogueBox.titleNoPhoto.enabled = false;
+        dialogueBox.titlePhoto.enabled = false;
+        dialogueBox.phraseNoPhoto.enabled = false;
+        dialogueBox.phrasePhoto.enabled = false;
     }
 
     public void nextPhrase()
@@ -39,8 +59,7 @@ public class DAS_DialogueSystem : MonoBehaviour
             // If the current dialogue is the last one, or if its the last on the array
             if (dialogues[currentDialogueIndex].lastOne || dialogues.Length <= currentDialogueIndex)
             {
-                Debug.Log("TODO exit diag");
-                // TODO exit dialog
+                endDialogue();
             }
             // If its not the last dialogue, call the next one
             else
@@ -52,22 +71,77 @@ public class DAS_DialogueSystem : MonoBehaviour
 
     public void nextDialogue()
     {
-        Debug.Log("next diag");
-        if(dialogues.Length > (currentDialogueIndex + 1))
+        // If current dialogue jumps to another dialogue out of order
+        if (dialogues[currentDialogueIndex].jumpToDialogue)
         {
-            currentDialogueIndex++;
-            currentPhraseIndex = 0;
-            buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
+            callSpecificDialogue(dialogues[currentDialogueIndex].targetDialogue);
         }
+        // Else check if there is another dialogue in the queue
+        else
+        {
+            if (dialogues.Length > (currentDialogueIndex + 1))
+            {
+                currentDialogueIndex++;
+                currentPhraseIndex = 0;
+                buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
+            }
+        }
+    }
+
+    public void callSpecificDialogue(DAS_Dialogue dialogue)
+    {
+        active = true;
+        int diagIndex = 0;
+        for (int i = 0; i < dialogues.Length; i++)
+        {
+            if (dialogues[i] == dialogue)
+            {
+                diagIndex = i;
+            }
+        }
+        currentPhraseIndex = 0;
+        currentDialogueIndex = diagIndex;
+        buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
     }
 
     public void buildDialogueBox(DAS_DialogueBox dialogueBox, DAS_Dialogue dialogue, int phraseIndex = 0)
     {
+        active = true;
+        disableOptions(dialogueBox);
         // If current dialogue has options, activate the bigger box
         if (dialogue.options.Length > 0)
         {
             dialogueBox.dialogueWithOptions.SetActive(true);
             dialogueBox.dialogueNoOptions.SetActive(false);
+            // If single option, enable single option box
+            if(dialogue.options.Length == 1)
+            {
+                dialogueBox.singleOptionBox.SetActive(true);
+                dialogueBox.singleOptionText.text = dialogue.options[0].phrase;  
+            }
+            // If two options, enable center option boxes
+            else if(dialogue.options.Length == 2)
+            {
+                dialogueBox.option2Box.SetActive(true);
+                dialogueBox.option3Box.SetActive(true);
+                dialogueBox.option2Text.text = dialogue.options[0].phrase;
+                dialogueBox.option3Text.text = dialogue.options[1].phrase;
+            }
+            // If more than two options, enable corresponding boxes
+            else
+            {
+                dialogueBox.option1Box.SetActive(true);
+                dialogueBox.option2Box.SetActive(true);
+                dialogueBox.option3Box.SetActive(true);
+                dialogueBox.option1Text.text = dialogue.options[0].phrase;               
+                dialogueBox.option2Text.text = dialogue.options[1].phrase;
+                dialogueBox.option3Text.text = dialogue.options[2].phrase;
+                if (dialogue.options.Length > 3)
+                {
+                    dialogueBox.option4Box.SetActive(true);
+                    dialogueBox.option4Text.text = dialogue.options[3].phrase;
+                }
+            }
         }
         else
         {
@@ -109,6 +183,31 @@ public class DAS_DialogueSystem : MonoBehaviour
             diagBox.phraseNoPhoto.enabled = true;
             diagBox.phraseNoPhoto.text = phrase;
         }
+    }
+
+    public void disableOptions(DAS_DialogueBox diagBox)
+    {
+        diagBox.option1Box.SetActive(false);
+        diagBox.option2Box.SetActive(false);
+        diagBox.option3Box.SetActive(false);
+        diagBox.option4Box.SetActive(false);
+        diagBox.singleOptionBox.SetActive(false);
+    }
+
+    public void executeOption(int optionIndex)
+    {
+        if (dialogues[currentDialogueIndex].options[optionIndex].executeAction)
+        {
+            endDialogue();
+            active = true;
+            dialogues[currentDialogueIndex].options[optionIndex].action.execute();
+        }
+
+        if (dialogues[currentDialogueIndex].options[optionIndex].openDialogue)
+        {
+            callSpecificDialogue(dialogues[currentDialogueIndex].options[optionIndex].dialogue);
+        }
+        
     }
    
 }
