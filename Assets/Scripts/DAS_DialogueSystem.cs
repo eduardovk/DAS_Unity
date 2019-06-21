@@ -8,6 +8,7 @@ public class DAS_DialogueSystem : MonoBehaviour
     public DAS_DialogueController dialogueController;
     public DAS_DialogueBox dialogueBox;
     public DAS_Dialogue[] dialogues;
+    public float phraseSpeed = 0.015f;
     public Sprite photo;
     public string title;
     public bool random = false;
@@ -18,6 +19,10 @@ public class DAS_DialogueSystem : MonoBehaviour
     public int currentPhraseIndex = 0;
     [HideInInspector]
     public bool active = false;
+
+    private IEnumerator currentCoroutine;
+    private string currentText = "";
+    private bool clicable = true;
 
     public void startDialogue()
     {
@@ -71,6 +76,19 @@ public class DAS_DialogueSystem : MonoBehaviour
                 nextDialogue();
             }
         }
+    }
+
+    IEnumerator animatePhrase(Text textContainer, string text, float speed)
+    {
+        clicable = false;
+        currentText = "";
+        for(int i = 0; i < text.Length; i++)
+        {
+            currentText = text.Substring(0, i+1);
+            textContainer.text = currentText;
+            yield return new WaitForSeconds(speed);
+        }
+        clicable = true;
     }
 
     public void nextDialogue()
@@ -171,6 +189,10 @@ public class DAS_DialogueSystem : MonoBehaviour
 
     public void assignPhotoAndTexts(DAS_DialogueBox diagBox, Sprite photo, string title, string phrase)
     {
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
         if (photo)
         {
             diagBox.photo.sprite = photo;
@@ -180,7 +202,15 @@ public class DAS_DialogueSystem : MonoBehaviour
             diagBox.titlePhoto.text = title;
             diagBox.phrasePhoto.enabled = true;
             diagBox.phraseNoPhoto.enabled = false;
-            diagBox.phrasePhoto.text = phrase;
+            if (dialogues[currentDialogueIndex].animatePhrases)
+            {
+                currentCoroutine = animatePhrase(diagBox.phrasePhoto, phrase, phraseSpeed);
+                StartCoroutine(currentCoroutine);
+            }
+            else
+            {
+                diagBox.phrasePhoto.text = phrase;
+            }
         }
         else
         {
@@ -190,7 +220,15 @@ public class DAS_DialogueSystem : MonoBehaviour
             diagBox.titleNoPhoto.text = title;
             diagBox.phrasePhoto.enabled = false;
             diagBox.phraseNoPhoto.enabled = true;
-            diagBox.phraseNoPhoto.text = phrase;
+            if (dialogues[currentDialogueIndex].animatePhrases)
+            {
+                currentCoroutine = animatePhrase(diagBox.phraseNoPhoto, phrase, phraseSpeed);
+                StartCoroutine(currentCoroutine);
+            }
+            else
+            {
+                diagBox.phraseNoPhoto.text = phrase;
+            }
         }
     }
 

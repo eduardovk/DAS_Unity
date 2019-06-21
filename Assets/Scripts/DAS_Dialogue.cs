@@ -7,6 +7,7 @@ public class DAS_Dialogue : MonoBehaviour
 {
 
     public string[] phrases;
+    public bool animatePhrases = true;
     public DAS_Option[] options;
     public bool lastOne;
     public bool inheritStyle = true;
