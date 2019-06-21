@@ -17,6 +17,7 @@ public class PlayAnimation : DAS_Action
         dialogueSystem.active = true;
         dialogueSystem.dialogueController.dialogueInCourse = true;
         effect.SetActive(true);
+        GetComponent<AudioSource>().Play();
         animator.SetTrigger("jump");
         Invoke("callNextDialogue", 1f);
     }

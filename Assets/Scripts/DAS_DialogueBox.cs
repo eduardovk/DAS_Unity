@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DAS_DialogueBox : MonoBehaviour
 {
+    [HideInInspector]
     public DAS_DialogueSystem currentDialogueSystem;
     public string showUpAnimTrigger = "riseup";
 
@@ -35,6 +36,11 @@ public class DAS_DialogueBox : MonoBehaviour
     public GameObject singleOptionBox;
     public Text singleOptionText;
 
+    // Sound Variables
+    public bool hasSound = false;
+    public AudioSource dialogueBoxAudioSource;
+    public AudioSource typingAudioSource;
+
     private Animator animator;
 
     private void Awake()
@@ -55,6 +61,33 @@ public class DAS_DialogueBox : MonoBehaviour
     public void showUpAnimation()
     {
         animator.SetTrigger(showUpAnimTrigger);
+    }
+
+    public void playDialogueBoxSound()
+    {
+        if (hasSound && dialogueBoxAudioSource)
+        {
+            dialogueBoxAudioSource.Play();
+        }
+    }
+
+    public void playTypeSound()
+    {
+        if (hasSound && typingAudioSource)
+        {
+            typingAudioSource.loop = true;
+            typingAudioSource.Play();
+        }
+    }
+
+    public void stopTypeSound()
+    {
+        if (hasSound && typingAudioSource)
+        {
+            typingAudioSource.loop = false;
+            //typingAudioSource.Stop();
+
+        }
     }
 
 

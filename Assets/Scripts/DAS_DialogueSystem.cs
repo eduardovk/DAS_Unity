@@ -35,6 +35,8 @@ public class DAS_DialogueSystem : MonoBehaviour
             currentDialogueIndex = diagIndex;
             currentPhraseIndex = 0;
             buildDialogueBox(dialogueBox, dialogues[diagIndex], 0);
+            dialogues[diagIndex].playSound();
+            dialogueBox.playDialogueBoxSound();
             dialogueBox.showUpAnimation();
         }
     }
@@ -82,11 +84,20 @@ public class DAS_DialogueSystem : MonoBehaviour
     {
         clicable = false;
         currentText = "";
-        for(int i = 0; i < text.Length; i++)
+        if (dialogues[currentDialogueIndex].playTypingSound)
+        {
+            dialogueBox.playTypeSound();
+        }
+        for (int i = 0; i < text.Length; i++)
         {
             currentText = text.Substring(0, i+1);
             textContainer.text = currentText;
+            
             yield return new WaitForSeconds(speed);
+        }
+        if (dialogues[currentDialogueIndex].playTypingSound)
+        {
+            dialogueBox.stopTypeSound();
         }
         clicable = true;
     }
@@ -107,6 +118,8 @@ public class DAS_DialogueSystem : MonoBehaviour
                 currentDialogueIndex++;
                 currentPhraseIndex = 0;
                 buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
+                dialogues[currentDialogueIndex].playSound();
+                dialogueBox.playDialogueBoxSound();
                 dialogueBox.showUpAnimation();
             }
         }
@@ -127,6 +140,8 @@ public class DAS_DialogueSystem : MonoBehaviour
         currentPhraseIndex = 0;
         currentDialogueIndex = diagIndex;
         buildDialogueBox(dialogueBox, dialogues[currentDialogueIndex], currentPhraseIndex);
+        dialogues[currentDialogueIndex].playSound();
+        dialogueBox.playDialogueBoxSound();
         dialogueBox.showUpAnimation();
     }
 
