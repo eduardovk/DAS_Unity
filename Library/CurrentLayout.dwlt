@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 579, y: 472}
   m_MaxSize: {x: 14002, y: 14044}
   vertical: 1
-  controlID: 121
+  controlID: 127
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 579, y: 472}
   m_MaxSize: {x: 14002, y: 14044}
   vertical: 0
-  controlID: 122
+  controlID: 128
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 304, y: 472}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 80
+  controlID: 85
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_MinSize: {x: 304, y: 200}
   m_MaxSize: {x: 8004, y: 4022}
   vertical: 0
-  controlID: 81
+  controlID: 61
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -413,7 +413,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 92fbffffaa2c0000b22c0000142d00002c2d00003a2d0000442d0000
+      m_ExpandedIDs: 64f6ffff52fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -580,9 +580,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.7009489, y: 1.3643148, z: 2.5945957}
+    m_Target: {x: 3.0935402, y: 1.9530911, z: 2.601}
     speed: 2
-    m_Value: {x: -0.7009489, y: 1.3643148, z: 2.5945957}
+    m_Value: {x: 3.0935402, y: 1.9530911, z: 2.601}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -603,25 +603,25 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     yGrid:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
     zGrid:
       m_Target: 0
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.19332151, y: 0.11450786, z: -0.02270515, w: 0.9741765}
+    m_Target: {x: 0.094325155, y: -0.026876532, z: 0.0025466569, w: 0.99517715}
     speed: 2
-    m_Value: {x: 0.1933195, y: 0.11450668, z: -0.022704916, w: 0.9741664}
+    m_Value: {x: 0.09432498, y: -0.026876483, z: 0.0025466522, w: 0.99517536}
   m_Size:
-    m_Target: 14.585093
+    m_Target: 12.993271
     speed: 2
-    m_Value: 14.585093
+    m_Value: 12.993271
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -680,20 +680,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 53
   m_LastFolders:
-  - Assets/Materials
+  - Assets
   m_LastFoldersGridSize: 53
   m_LastProjectPath: C:\ProjetosUnity\DAS_Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4c2b0000
-    m_LastClickedID: 11084
-    m_ExpandedIDs: 000000006629000000ca9a3b
+    m_SelectedIDs: 7c290000
+    m_LastClickedID: 10620
+    m_ExpandedIDs: 000000007c29000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -721,7 +721,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066290000
+    m_ExpandedIDs: 000000007c290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
