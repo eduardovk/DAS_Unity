@@ -7,6 +7,8 @@ public class DAS_DialogueSystem : MonoBehaviour
 {
     public DAS_DialogueController dialogueController;
     public DAS_DialogueBox dialogueBox;
+    public DAS_Action actionWhenStart;
+    public DAS_Action actionWhenFinish;
     public DAS_Dialogue[] dialogues;
     public float phraseSpeed = 0.015f;
     public Sprite photo;
@@ -38,6 +40,10 @@ public class DAS_DialogueSystem : MonoBehaviour
             dialogues[diagIndex].playSound();
             dialogueBox.playDialogueBoxSound();
             dialogueBox.showUpAnimation();
+            if (actionWhenStart)
+            {
+                actionWhenStart.execute();
+            }
         }
     }
 
@@ -53,6 +59,10 @@ public class DAS_DialogueSystem : MonoBehaviour
         dialogueBox.titlePhoto.enabled = false;
         dialogueBox.phraseNoPhoto.enabled = false;
         dialogueBox.phrasePhoto.enabled = false;
+        if (dialogues[currentDialogueIndex].lastOne && actionWhenFinish)
+        {
+            actionWhenFinish.execute();
+        }
     }
 
     public void nextPhrase()
