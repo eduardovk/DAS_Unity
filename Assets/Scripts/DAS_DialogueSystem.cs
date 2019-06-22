@@ -7,13 +7,16 @@ public class DAS_DialogueSystem : MonoBehaviour
 {
     public DAS_DialogueController dialogueController;
     public DAS_DialogueBox dialogueBox;
-    public DAS_Action actionWhenStart;
-    public DAS_Action actionWhenFinish;
+    
     public DAS_Dialogue[] dialogues;
     public float phraseSpeed = 0.015f;
     public Sprite photo;
     public string title;
     public bool random = false;
+
+    [Header("Optional")]
+    public DAS_Action actionWhenStart;
+    public DAS_Action actionWhenFinish;
 
     [HideInInspector]
     public int currentDialogueIndex = 0;

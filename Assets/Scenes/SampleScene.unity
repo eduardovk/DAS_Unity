@@ -163,15 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 1
   phrases:
   - Wait... You don't know what your name is?
   - People are getting weird.
+  options: []
   animatePhrases: 1
   playTypingSound: 1
-  options: []
-  lastOne: 1
   inheritStyle: 1
-  title: 
+  title: Title
   photo: {fileID: 0}
   jumpToDialogue: 0
   targetDialogue: {fileID: 0}
@@ -342,8 +342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueController: {fileID: 500565577}
   dialogueBox: {fileID: 834870859}
-  actionWhenStart: {fileID: 733105800}
-  actionWhenFinish: {fileID: 733105800}
   dialogues:
   - {fileID: 543833893}
   - {fileID: 267357246}
@@ -353,6 +351,8 @@ MonoBehaviour:
   photo: {fileID: 21300000, guid: 0804787d54e430d4c889f11697a5d561, type: 3}
   title: Carlito
   random: 0
+  actionWhenStart: {fileID: 733105800}
+  actionWhenFinish: {fileID: 733105800}
   currentDialogueIndex: 0
   currentPhraseIndex: 0
   active: 0
@@ -481,15 +481,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 0
   phrases:
   - What do you want to do next?
-  animatePhrases: 1
-  playTypingSound: 1
   options:
   - {fileID: 1331831177}
   - {fileID: 91453880}
   - {fileID: 1316606923}
-  lastOne: 0
+  animatePhrases: 1
+  playTypingSound: 1
   inheritStyle: 1
   title: Title
   photo: {fileID: 0}
@@ -558,13 +558,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 0
   phrases:
   - Hello... I don't remember you...
   - What is your name?
+  options: []
   animatePhrases: 1
   playTypingSound: 1
-  options: []
-  lastOne: 0
   inheritStyle: 1
   title: 
   photo: {fileID: 0}
@@ -772,13 +772,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 0
   phrases:
   - I like talking to you.
   - You seem to be a friendly person.
+  options: []
   animatePhrases: 1
   playTypingSound: 1
-  options: []
-  lastOne: 0
   inheritStyle: 1
   title: 
   photo: {fileID: 0}
@@ -920,14 +920,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 0
   phrases:
   - Welcome do the Dialogue System! I'll give you a quick demonstration.
   - What you're seeing is the Diag1 dialogue phrases. Now we will jump to Diag2, this
     time with options.
+  options: []
   animatePhrases: 1
   playTypingSound: 1
-  options: []
-  lastOne: 0
   inheritStyle: 1
   title: 
   photo: {fileID: 0}
@@ -3259,8 +3259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueController: {fileID: 500565577}
   dialogueBox: {fileID: 834870859}
-  actionWhenStart: {fileID: 1975687567}
-  actionWhenFinish: {fileID: 1975687567}
   dialogues:
   - {fileID: 272116420}
   - {fileID: 1882690909}
@@ -3269,6 +3267,8 @@ MonoBehaviour:
   photo: {fileID: 21300000, guid: 81bf33da651f6c84cbe75cbabb8bee78, type: 3}
   title: Sandy
   random: 0
+  actionWhenStart: {fileID: 1975687567}
+  actionWhenFinish: {fileID: 1975687567}
   currentDialogueIndex: 0
   currentPhraseIndex: 0
   active: 0
@@ -3661,12 +3661,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 1
   phrases:
   - Ok! Bye!
+  options: []
   animatePhrases: 1
   playTypingSound: 1
-  options: []
-  lastOne: 1
   inheritStyle: 1
   title: Title
   photo: {fileID: 0}
@@ -3732,12 +3732,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95a01bcc747b5f4ba790853acecdb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastOne: 0
   phrases:
   - My name? Well... Humm... I don't know!
+  options: []
   animatePhrases: 1
   playTypingSound: 1
-  options: []
-  lastOne: 0
   inheritStyle: 0
   title: You
   photo: {fileID: 21300000, guid: 9716cdf9c0760c94980311c122a688e4, type: 3}
