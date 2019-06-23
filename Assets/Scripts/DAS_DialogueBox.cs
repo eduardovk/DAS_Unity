@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//---------------------------------//
+// Author: Eduardo Vicenzi Kuhn    //
+// Date: 23/06/2019                //
+// github.com/eduardovk            //
+//---------------------------------//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -89,8 +94,6 @@ public class DAS_DialogueBox : MonoBehaviour
         if (hasSound && typingAudioSource)
         {
             typingAudioSource.loop = false;
-            //typingAudioSource.Stop();
-
         }
     }
 

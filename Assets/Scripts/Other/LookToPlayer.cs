@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//---------------------------------//
+// Author: Eduardo Vicenzi Kuhn    //
+// Date: 23/06/2019                //
+// github.com/eduardovk            //
+//---------------------------------//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +14,10 @@ public class LookToPlayer : DAS_Action
     public float rotationSpeed = 4f;
 
     private Quaternion initialRotation;
+
+    // In this example, looktoplayer script is used as a start and end action for the dialogue
+    // so when the dialogue begins, carlito looks to the player, and when it ends, carlito 
+    // looks back to its original rotation
 
     private void Start()
     {

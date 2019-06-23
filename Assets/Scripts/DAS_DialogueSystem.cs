@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//---------------------------------//
+// Author: Eduardo Vicenzi Kuhn    //
+// Date: 23/06/2019                //
+// github.com/eduardovk            //
+//---------------------------------//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +48,7 @@ public class DAS_DialogueSystem : MonoBehaviour
             dialogues[diagIndex].playSound();
             dialogueBox.playDialogueBoxSound();
             dialogueBox.showUpAnimation();
+            // If there is a DAS_Action set to execute when the dialog starts
             if (actionWhenStart)
             {
                 actionWhenStart.execute();
@@ -62,6 +68,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         dialogueBox.titlePhoto.enabled = false;
         dialogueBox.phraseNoPhoto.enabled = false;
         dialogueBox.phrasePhoto.enabled = false;
+        // If this is the last dialogue and there is a DAS_Action set to execute when it finishes
         if (dialogues[currentDialogueIndex].lastOne && actionWhenFinish)
         {
             actionWhenFinish.execute();
@@ -93,6 +100,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         }
     }
 
+    // Animate the letters to a typing effect
     IEnumerator animatePhrase(Text textContainer, string text, float speed)
     {
         clicable = false;
@@ -138,11 +146,13 @@ public class DAS_DialogueSystem : MonoBehaviour
         }
     }
 
+    // A dialogue can call a specific dialogue that is not in sequence
     public void callSpecificDialogue(DAS_Dialogue dialogue)
     {
         active = true;
         dialogueController.dialogueInCourse = true;
         int diagIndex = 0;
+        // Search the index number for the provided dialogue
         for (int i = 0; i < dialogues.Length; i++)
         {
             if (dialogues[i] == dialogue)
@@ -198,6 +208,7 @@ public class DAS_DialogueSystem : MonoBehaviour
                 }
             }
         }
+        // If there is no option, active smaller box
         else
         {
             dialogueBox.dialogueWithOptions.SetActive(false);
@@ -217,6 +228,7 @@ public class DAS_DialogueSystem : MonoBehaviour
 
     public void assignPhotoAndTexts(DAS_DialogueBox diagBox, Sprite photo, string title, string phrase)
     {
+        // If there is a coroutine running the typing animation, stop it
         if (currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
@@ -230,11 +242,13 @@ public class DAS_DialogueSystem : MonoBehaviour
             diagBox.titlePhoto.text = title;
             diagBox.phrasePhoto.enabled = true;
             diagBox.phraseNoPhoto.enabled = false;
+            // If dialogue animatePhrases is checked, start coroutine with animation process
             if (dialogues[currentDialogueIndex].animatePhrases)
             {
                 currentCoroutine = animatePhrase(diagBox.phrasePhoto, phrase, phraseSpeed);
                 StartCoroutine(currentCoroutine);
             }
+            // Else, just display the plain text
             else
             {
                 diagBox.phrasePhoto.text = phrase;
@@ -248,11 +262,13 @@ public class DAS_DialogueSystem : MonoBehaviour
             diagBox.titleNoPhoto.text = title;
             diagBox.phrasePhoto.enabled = false;
             diagBox.phraseNoPhoto.enabled = true;
+            // If dialogue animatePhrases is checked, start coroutine with animation process
             if (dialogues[currentDialogueIndex].animatePhrases)
             {
                 currentCoroutine = animatePhrase(diagBox.phraseNoPhoto, phrase, phraseSpeed);
                 StartCoroutine(currentCoroutine);
             }
+            // Else, just display the plain text
             else
             {
                 diagBox.phraseNoPhoto.text = phrase;
@@ -260,6 +276,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         }
     }
 
+    // Disable all option boxes
     public void disableOptions(DAS_DialogueBox diagBox)
     {
         diagBox.option1Box.SetActive(false);
@@ -273,6 +290,7 @@ public class DAS_DialogueSystem : MonoBehaviour
 
     public void executeOption(int optionIndex)
     {
+        // If endDialog is checked in the DAS_Option, finish the current dialog
         if (dialogues[currentDialogueIndex].options[optionIndex].endDialog)
         {
             endDialogue();
@@ -283,6 +301,7 @@ public class DAS_DialogueSystem : MonoBehaviour
         }
         else
         {
+            // If there is a DAS_Action, finish the dialog but keep active = true untill the action finish its execution
             if (dialogues[currentDialogueIndex].options[optionIndex].executeAction)
             {
                 endDialogue();
@@ -290,7 +309,7 @@ public class DAS_DialogueSystem : MonoBehaviour
                 dialogueController.dialogueInCourse = true;
                 dialogues[currentDialogueIndex].options[optionIndex].action.execute();
             }
-
+            // If openDialogue is checked, call the specific dialogue provided
             if (dialogues[currentDialogueIndex].options[optionIndex].openDialogue)
             {
                 callSpecificDialogue(dialogues[currentDialogueIndex].options[optionIndex].dialogue);

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿//---------------------------------//
+// Author: Eduardo Vicenzi Kuhn    //
+// Date: 23/06/2019                //
+// github.com/eduardovk            //
+//---------------------------------//
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -17,10 +22,7 @@ public class DAS_Option : MonoBehaviour
     [HideInInspector]
     public DAS_Action action;
 
-    
 }
-
-
 
 [CustomEditor(typeof(DAS_Option))]
 public class DAS_Option_Editor : Editor
