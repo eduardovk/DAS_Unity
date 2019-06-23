@@ -31,6 +31,10 @@ public class DAS_DialogueBox : MonoBehaviour
     public Text option3Text;
     public GameObject option4Box;
     public Text option4Text;
+    public GameObject option1CenterBox;
+    public Text option1CenterText;
+    public GameObject option2CenterBox;
+    public Text option2CenterText;
 
     // Single-Option Variables
     public GameObject singleOptionBox;

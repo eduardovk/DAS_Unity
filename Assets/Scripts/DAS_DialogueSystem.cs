@@ -177,10 +177,10 @@ public class DAS_DialogueSystem : MonoBehaviour
             // If two options, enable center option boxes
             else if(dialogue.options.Length == 2)
             {
-                dialogueBox.option2Box.SetActive(true);
-                dialogueBox.option3Box.SetActive(true);
-                dialogueBox.option2Text.text = dialogue.options[0].phrase;
-                dialogueBox.option3Text.text = dialogue.options[1].phrase;
+                dialogueBox.option1CenterBox.SetActive(true);
+                dialogueBox.option2CenterBox.SetActive(true);
+                dialogueBox.option1CenterText.text = dialogue.options[0].phrase;
+                dialogueBox.option2CenterText.text = dialogue.options[1].phrase;
             }
             // If more than two options, enable corresponding boxes
             else
@@ -266,6 +266,8 @@ public class DAS_DialogueSystem : MonoBehaviour
         diagBox.option2Box.SetActive(false);
         diagBox.option3Box.SetActive(false);
         diagBox.option4Box.SetActive(false);
+        diagBox.option1CenterBox.SetActive(false);
+        diagBox.option2CenterBox.SetActive(false);
         diagBox.singleOptionBox.SetActive(false);
     }
 
