@@ -273,18 +273,30 @@ public class DAS_DialogueSystem : MonoBehaviour
 
     public void executeOption(int optionIndex)
     {
-        if (dialogues[currentDialogueIndex].options[optionIndex].executeAction)
+        if (dialogues[currentDialogueIndex].options[optionIndex].endDialog)
         {
             endDialogue();
-            active = true;
-            dialogueController.dialogueInCourse = true;
-            dialogues[currentDialogueIndex].options[optionIndex].action.execute();
+            if (actionWhenFinish)
+            {
+                actionWhenFinish.execute();
+            }
         }
-
-        if (dialogues[currentDialogueIndex].options[optionIndex].openDialogue)
+        else
         {
-            callSpecificDialogue(dialogues[currentDialogueIndex].options[optionIndex].dialogue);
+            if (dialogues[currentDialogueIndex].options[optionIndex].executeAction)
+            {
+                endDialogue();
+                active = true;
+                dialogueController.dialogueInCourse = true;
+                dialogues[currentDialogueIndex].options[optionIndex].action.execute();
+            }
+
+            if (dialogues[currentDialogueIndex].options[optionIndex].openDialogue)
+            {
+                callSpecificDialogue(dialogues[currentDialogueIndex].options[optionIndex].dialogue);
+            }
         }
+        
         
     }
    

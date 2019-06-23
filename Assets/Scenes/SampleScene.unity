@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 91453879}
   - component: {fileID: 91453880}
   m_Layer: 0
-  m_Name: Option2 - Play Animation
+  m_Name: Option2 - Can You Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -364,7 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23f6feb79c8ed54ebe7a8aa3e0a3f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phrase: Play Animation
+  phrase: Can you jump?
+  endDialog: 0
   openDialogue: 0
   executeAction: 1
   dialogue: {fileID: 0}
@@ -603,6 +604,7 @@ MonoBehaviour:
   - {fileID: 1331831177}
   - {fileID: 91453880}
   - {fileID: 1316606923}
+  - {fileID: 1492594060}
   animatePhrases: 1
   playTypingSound: 1
   inheritStyle: 1
@@ -627,6 +629,7 @@ Transform:
   - {fileID: 1331831176}
   - {fileID: 91453879}
   - {fileID: 1316606922}
+  - {fileID: 1492594059}
   m_Father: {fileID: 215845157}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2231,7 +2234,7 @@ GameObject:
   - component: {fileID: 1316606922}
   - component: {fileID: 1316606923}
   m_Layer: 0
-  m_Name: Option3 - Exit
+  m_Name: Option3 - I Have To Go
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2263,7 +2266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23f6feb79c8ed54ebe7a8aa3e0a3f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phrase: Exit
+  phrase: I have to go
+  endDialog: 0
   openDialogue: 1
   executeAction: 0
   dialogue: {fileID: 1863842445}
@@ -2279,7 +2283,7 @@ GameObject:
   - component: {fileID: 1331831176}
   - component: {fileID: 1331831177}
   m_Layer: 0
-  m_Name: Option1 - Keep Talking
+  m_Name: Option1 - Lets Talk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2311,10 +2315,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23f6feb79c8ed54ebe7a8aa3e0a3f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phrase: Keep Talking
+  phrase: Let's talk
+  endDialog: 0
   openDialogue: 1
   executeAction: 0
   dialogue: {fileID: 425462333}
+  action: {fileID: 0}
+--- !u!1 &1492594058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492594059}
+  - component: {fileID: 1492594060}
+  m_Layer: 0
+  m_Name: Option3 - Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1492594059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492594058}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: -0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 267357247}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1492594060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492594058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23f6feb79c8ed54ebe7a8aa3e0a3f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phrase: Exit
+  endDialog: 1
+  openDialogue: 0
+  executeAction: 0
+  dialogue: {fileID: 1863842445}
   action: {fileID: 0}
 --- !u!1 &1830105604
 GameObject:
