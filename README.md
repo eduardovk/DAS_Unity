@@ -60,6 +60,24 @@ Example with options:
 
 ![alt text](https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/DialogueWithOptions.png)
 
-// TODO
+Since in the last image we saw some DAS_Options variables, let's see how an Option object implements a DAS_Option script:
 
+![alt text](https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/OptionAction.png)
 
+A DAS_Option has the variables:
+- `Title`: The text of the option itself
+- `End Dialogue`: If checked, the dialogue with the character will close when the option is clicked
+- `Open Dialogue`: If checked, a specific dialogue will be called when the option is clicked
+- `Dialogue`(Hidden): If Open Dialogue is checked, a Dialogue must be provided
+- `Execute Action`: If checked, a specific action will be executed when the option is clicked
+- `Action`(Hidden): If Execute Action is checked, a script that inherits from DAS_Action must be provided 
+
+An example of an Option that closes the dialogue:
+
+![alt text](https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/Option.png)
+
+#### Canvas
+
+If you want to use the Prefab DialogueBox without having to make changes, set your Canvas UI Scale Mode to "Scale With Screen Size" and set the Reference Resolution to 1920 x 1280
+
+And don't forget to add the DialogueBox Prefab as a child of the Canvas!
