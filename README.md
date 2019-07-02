@@ -1,6 +1,7 @@
 # Dialogue and Action System v1.0
 #### by Eduardo Vicenzi Kuhn
 
+Click on the image below to watch a demonstration video:
 <a href="https://www.youtube.com/watch?v=ZeKorNSKFrM"><img src="https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/DAS_Print.PNG" width="400"/></a>
 
 ### Introduction
