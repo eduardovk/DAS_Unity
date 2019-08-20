@@ -5,7 +5,9 @@
 //---------------------------------//
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR 
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class DAS_Option : MonoBehaviour
@@ -24,6 +26,7 @@ public class DAS_Option : MonoBehaviour
 
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(DAS_Option))]
 public class DAS_Option_Editor : Editor
 {
@@ -51,3 +54,4 @@ public class DAS_Option_Editor : Editor
         
     }
 }
+#endif

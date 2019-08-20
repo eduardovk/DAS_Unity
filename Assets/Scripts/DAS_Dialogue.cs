@@ -5,7 +5,9 @@
 //---------------------------------//
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+#if UNITY_EDITOR 
+using UnityEditor; 
+#endif
 using UnityEngine;
 
 public class DAS_Dialogue : MonoBehaviour
@@ -51,6 +53,7 @@ public class DAS_Dialogue : MonoBehaviour
 
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(DAS_Dialogue))]
 public class DAS_Dialogue_Editor : Editor
 {
@@ -89,3 +92,4 @@ public class DAS_Dialogue_Editor : Editor
 
     }
 }
+#endif
