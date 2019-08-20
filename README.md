@@ -1,8 +1,12 @@
-# Dialogue and Action System
+# Dialogue and Action System v1.0
 #### by Eduardo Vicenzi Kuhn
 
+Click on the image below to watch a demonstration video:
+
+<a href="https://www.youtube.com/watch?v=ZeKorNSKFrM"><img src="https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/DAS_Print.PNG" width="400"/></a>
+
 ### Introduction
-Dialogue and Action System for Unity (or simply DAS_Unity) is an asset for Unity3D Game Engine which provides an easy way for beginners to create complete dialogues in their games with the most frequent features seen on RPGs such as dialogue ramifications, multiple options, associated actions and so on.
+`Dialogue and Action System for Unity` (or simply `DAS_Unity`) is an asset for Unity3D Game Engine which provides an easy way for beginners to create complete dialogues in their games with the most frequent features seen on RPGs such as dialogue ramifications, multiple options, associated actions and so on.
 
 ### How to install it
 Download this project and copy the contents of "Assets" folder.
@@ -80,4 +84,13 @@ An example of an Option that closes the dialogue:
 
 If you want to use the Prefab DialogueBox without having to make changes, set your Canvas UI Scale Mode to "Scale With Screen Size" and set the Reference Resolution to 1920 x 1280
 
+![alt text](https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/Canvas.PNG)
+
 And don't forget to add the DialogueBox Prefab as a child of the Canvas!
+
+![alt text](https://raw.githubusercontent.com/eduardovk/DAS_Unity/master/git_images/DialogBox.PNG)
+
+
+#### For a better understanding, please consider running and analysing the examples within the Examples Scene in the project.
+
+## Feel free to contribute to this project!
